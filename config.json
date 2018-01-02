@@ -1,0 +1,15 @@
+{"GAME_LIFE_COUNT" : 5,
+"GAME_COUNT_DOWN_TIME" : 15,
+"GAME_DELAY_AFTER_GAME" : 5,
+"GAME_MODES" : ["Competitive", "Collaborative"],
+
+"CONFIG_PORT" : 3000,
+
+"DBConfig" : {
+	"user": "pacmany",
+    "password": "password",
+	"database": "pacmany",
+	"host": "localhost",
+	"port": 5432,
+	"idleTimeoutMillis": 30000}
+}

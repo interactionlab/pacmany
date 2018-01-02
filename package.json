@@ -1,0 +1,33 @@
+{
+  "name": "p5",
+  "version": "1.0.0",
+  "description": "CLONE of https://github.com/daleharvey/pacman",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./app.js"
+  },
+  "author": "Vogelsang",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.5.0",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "express-device": "^0.4.2",
+    "glob": "^7.1.2",
+    "pg": "^6.4.0",
+    "pug": "^2.0.0-rc.4",
+    "socket.io": "^1.7.4",
+    "ua-parser-js": "^0.7.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/interactionlab/pacmany.git"
+  },
+  "bugs": {
+    "url": "https://github.com/interactionlab/pacmany/issues"
+  },
+  "homepage": "https://github.com/interactionlab/pacmany#readme",
+  "keywords": [],
+  "devDependencies": {}
+}

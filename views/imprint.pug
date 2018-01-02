@@ -1,0 +1,36 @@
+
+extends layout
+
+block append content
+    .container-fluid.center-block
+        h1 Pac-Many
+        p Pac-Many was developed as a reseach project. First reults have been publish in 2018 DOI: 
+           a https://doi.org/10.1145/3173574.3174113
+        p Find the source code under MIT Licence on 
+            a(href='https://github.com/interactionlab/pacmany') github.com.
+            
+        p Sven Mayer*, Lars Lischke*, Jens Emil Grønbæk+, Zhanna Sarsenbayeva~, Jonas Vogelsang*, Paweł W. Wozniak*, Niels Henze*, Giulio Jacucci§
+        p   *University of Stuttgart, Stuttgart, Germany, {firstname.lastname}@vis.uni-stuttgart.de
+            |   +Aarhus University, Aarhus, Denmark, jensemil@cs.au.dk
+            |   ~The University of Melbourne, Melbourne, Australia, zsarsenbayev@student.unimelb.edu.au
+            |   §University of Helsinki, Helsinki, Finland, giulio.jacucci@helsinki.fi
+//-
+    html
+        script(type='text/javascript', src='/js/webgl.js')
+        script#shader-fs(type='x-shader/x-fragment').
+            precision mediump float;
+            void main(void) {
+                gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+            }
+        script#shader-vs(type='x-shader/x-vertex').
+          attribute vec3 aVertexPosition;
+          uniform mat4 uMVMatrix;
+          uniform mat4 uPMatrix;
+          void main(void) {
+            gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+          }
+
+        body(onload='webGLStart();')
+            canvas#lesson01-canvas(style='border: none;', width='500', height='500')
+            br
+

@@ -1,0 +1,48 @@
+html, body {
+  height: 100%;
+  background: black;
+  overflow:hidden;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+#gameInput {
+	width: 50%;
+	margin: auto;
+}
+
+#score {
+    width: 0%;
+}
+
+#overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0,0,0); /* Black fallback color */
+    background-color: rgba(0,0,0, 0.5); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+#overlay h1 {
+    padding: 8px;
+    color: #FFFFFF;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}

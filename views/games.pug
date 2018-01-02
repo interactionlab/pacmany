@@ -1,0 +1,87 @@
+extends layout
+
+block append content
+  .container-fluid.center-block
+    script.
+        var port = "#{port}";
+    script(type='text/javascript', src='/qrcode.min.js')
+    script(src='/socket.io/socket.io.js')
+    script(src='/js/games.js')
+
+
+    .container
+      h2 Games
+      p Currently avalible screens:
+      table#screens.table.table-striped
+        thead
+          tr
+            th Id
+            th Name
+            th Location
+            th Map
+            th Players
+            th Actions
+        tbody#gameTable
+      form(style='display:block; text-align:center')
+        #gameInput
+          .form-group
+              label(for='name') Name:
+              input#name.form-control(type='text', required='')
+          .form-group
+              label(for='place') Location:
+              input#place.form-control(type='text', required='')
+          .form-group
+              label(for='map') Map:
+              select#map.form-control
+                  each item in mapoptions
+                      option #{item}
+          //-
+            .form-group
+                label(for='gamemode') Gamemode:
+                select#gamemode.form-control
+                    each item in gamemodes
+                        option #{item}
+            .form-group
+                label(for='splits') Number of Screen Splits (0 for no split):
+                input#splits.form-control(type='text', required='', value="0")
+            .form-group
+                label(for='showQRCode')
+                    input#showQRCode.form-control(type='checkbox', checked=true, required = '').form-control
+                    | Show QR Code
+                label(for='showHighScore')
+                    input#showHighScore.form-control(type='checkbox', checked=true, required = '').form-control
+                    | Show High Score
+          .panel-group(style='display:block; text-align:center')
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  a(data-toggle='collapse', href='#collapse1') Game Options
+              #collapse1.panel-collapse.collapse
+                ul.list-group
+                  li.list-group-item
+                      label(for='showQRCode')
+                          | Show QR Code
+                          input#showQRCode.form-control(type='checkbox', checked=true, required = '').form-control
+                      label(for='showHighScore')
+                          | Show High Score
+                          input#showHighScore.form-control(type='checkbox', checked=true, required = '').form-control
+                  li.list-group-item
+                      label(for='splits') Number of Screen Splits (0 for no split):
+                          input#splits.form-control(type='text', required='', value="0")
+                  li.list-group-item
+                      label(for='gamemode') Gamemode:
+                          select#gamemode.form-control
+                              each item in gamemodes
+                                  option #{item}
+                  li.list-group-item
+                      label(for='maxPlayers') Maximum number of players allowed (min. 2):
+                          input#maxPlayers.form-control(type='text', required='', value="12")
+                  li.list-group-item
+                      label(for='portalPairs') Number of portal-pairs:
+                          input#portalPairs.form-control(type='text', required='', value="0")
+                  li.list-group-item
+                      label(for='pillsPerPlayer') Number of pills per player:
+                          input#pillsPerPlayer.form-control(type='text', required='', value="0")
+
+        button.btn.btn-primary.btn-block(type='submit', onclick='myButton()', form='name,location,map,showQRCode,showHighScore') New Game
+    .overlay(id = 'overlay', style='visibility:hidden')

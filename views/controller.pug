@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title PacMany Controller
+    
+    meta(name="viewport",content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+    script(language='javascript', type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    
+    
+    script(src='/socket.io/socket.io.js')
+    
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/stylecontroller.css')
+    
+    script.
+        var socket = io();
+        var controllerInfo = {
+            controllerid : "#{controllerid}",
+            playerid : null,
+            gameid: #{gameid},
+            useragent: navigator.userAgent,
+            nickname : "",
+            color : [255,255,255],
+            resolution : [screen.width,screen.height]
+        }
+        
+    script(type='text/javascript', src='/js/controller.js')
+  body
+    .controllerOverlay(id='overlayJoin')
+        h1 Welcome
+        .form-group(id='join')
+            label(for='nickname') Please enter your nickname:
+            input#nickname.form-control(type='text', required='', ng-model="nickname" , onKeyDown="if(event.keyCode==13) clickJoin();")
+        button.btn.btn-default.btn-block(type='submit', onclick='clickJoin()', form='nickname') Join 
+    .controllerOverlay(id='overlayWait', style='visibility:hidden')
+        h1 You are out! <br> Wait for the other Players
+    .controllerOverlay(id='overlayRejoin', style='visibility:hidden')
+        h1  Rejoin the game?
+
+        button.btn.btn-default.btn-block(type='submit', onclick='rejoind()') Yes          

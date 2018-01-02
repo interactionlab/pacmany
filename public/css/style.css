@@ -1,0 +1,40 @@
+body {
+	color: #555;
+}
+
+h1 {
+	text-align: center;
+	color: #555;
+}
+
+button.gamelink{
+    position:relative; /*this is the key*/
+}
+
+button.gamelink span{
+    display: none
+}
+
+button.gamelink:hover span{ /*the span will display just on :hover state*/
+    display:block;
+    position:absolute;
+    top:-60px;
+    left:-400px;
+}
+
+
+/*.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    padding: 15px;
+    background-color: #f1c40f;
+    text-align: center;
+    border-radius: 5px;
+    z-index: 10; 
+    box-shadow: 0 0 0 9999px rgba(0,0,0,0.7);
+}*/
