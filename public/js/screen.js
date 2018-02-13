@@ -141,8 +141,7 @@ $(document).ready(function() {
         document.getElementById("score").style.display = "none";
     }
     if (showQRCode == 0 || splitscreen != splits){
-        $( "#qrcode" ).css( "visibility", "hidden" );
-        $( "#qrcode" ).css( "width", "0px" );
+        $("#qrcode").css( "display", "none" );
     }
 });
 
