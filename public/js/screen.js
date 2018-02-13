@@ -19,7 +19,7 @@ var maxScore = 0;
 var lives = 0;
 var splitscreenDifference = Math.floor(gameMap.length/2);
 var splitter;
-
+var setupDone = false;
 
 //For debuging:--------    
 function mouseClicked(){
@@ -194,6 +194,8 @@ function setup() {
     } else {
         $("body").css("display", "block");
     }    
+	
+	setupDone = true;
 }
 
 function resetDraw(){
@@ -545,6 +547,9 @@ function drawGhostLegs(gameMap,mapScale,color,direction,x,y,animationTimer) {
 function windowResized() {
 	w = window.innerWidth;
   	h = window.innerHeight;
+	if (setupDone == false)
+		return;
+	
   	mapScale = responsiveMap(splitter,gameMap[0].length);
     var canvasWidth = splitter*mapScale;
     var canvasHeight = gameMap[0].length*mapScale;
