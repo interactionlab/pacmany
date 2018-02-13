@@ -5,7 +5,7 @@ Pac-Many was developed as a reseach project. Inspired by the original Pac-Man ga
 ## Setup Pac-Many
 Step-by-step instructions:
 * Setup a postgres database and update `config.json` accordingly
-* `$ npm install update`
+* `$ npm install`
 * `$ npm install -g nodemon`
 * `$ npm start`
 
