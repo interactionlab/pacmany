@@ -240,6 +240,9 @@ function drawPills(x,y,mapScale, size, color){
 }
 
 function drawMain(){
+	if (setupDone == false)
+		return;
+	
     if(animationTimer <0){
         animationTimerFactor = -1*animationTimerFactor;
     } else if (animationTimer > 1){
