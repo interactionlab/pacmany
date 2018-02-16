@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var ip = require("ip");
 
 var GAME_CONFIG = require('../config.json');
 
@@ -41,7 +42,8 @@ router.get('/', function (req, res, next) {
         console.log(Games[query.gameid].showQRCode);
         
         console.log("MAP " + Games[query.gameid].mapData.file);
-        res.render('screen', { port : GAME_CONFIG.CONFIG_PORT, map : Games[query.gameid].mapData.file,
+        console.log(ip.address());
+        res.render('screen', {hostip: ip.address(), hostport : GAME_CONFIG.CONFIG_PORT, map : Games[query.gameid].mapData.file,
         gameid : query.gameid, screenid : guid(), showHighScore: Games[query.gameid].showHighScore, showQRCode : Games[query.gameid].showQRCode, splits : splits, splitscreen : splitscreen});
     } else {
         res.redirect('/');

@@ -12,18 +12,19 @@ html
     script(type='text/javascript', src='./maps/' + map )
     
     script.
-        var gameMap = jQuery.extend(true, [], mapOriginal);
-        var splits = #{splits};
-        var splitscreen = #{splitscreen};
-        var port = #{port};
-        var gameid = #{gameid};
-        var screenid = "#{screenid}";
-        var showQRCode = #{showQRCode};
-        var showHighScore = #{showHighScore};
-        var socket = io();
-        var loadedMap = false;
-        var test = false;
-        var gamemode ="";
+      var gameMap = jQuery.extend(true, [], mapOriginal);
+      var splits = #{splits};
+      var splitscreen = #{splitscreen};
+      var hostip = "#{hostip}";
+      var hostport = #{hostport};
+      var gameid = #{gameid};
+      var screenid = "#{screenid}";
+      var showQRCode = #{showQRCode};
+      var showHighScore = #{showHighScore};
+      var socket = io();
+      var loadedMap = false;
+      var test = false;
+      var gamemode ="";
 
       
     script(type='text/javascript', src='./js/screen.js')

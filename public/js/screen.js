@@ -129,13 +129,19 @@ if(gameid != ""){
 
 $(document).ready(function() {
     if (splitscreen == splits){
-        p = ":" + port;
-        if (port == 80 && location.protocol == "http"){
-            p = ""
-        } else if (port == 443 && location.protocol == "https"){
-            p = ""
+        port = ":" + hostport;
+        if (hostport == 80 && location.protocol == "http"){
+            port = ""
+        } else if (hostport == 443 && location.protocol == "https"){
+            port = ""
         }
-        new QRCode(document.getElementById("qrcode"), location.protocol + '//' + location.hostname + p + "/controller?gameid="+ gameid);
+        var hostname = location.hostname
+        if (hostname == "localhost" || hostname == "127.0.0.1"){
+            hostname = hostip;
+        }
+        
+        
+        new QRCode(document.getElementById("qrcode"), location.protocol + '//' + hostname + port + "/controller?gameid="+ gameid);
     }
     if (splitscreen != splits || showHighScore == 0) {
         document.getElementById("score").style.display = "none";
