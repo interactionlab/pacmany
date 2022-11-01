@@ -10,7 +10,7 @@
   "author": "Sven Mayer, Jonas Vogelsang",
   "license": "MIT",
   "dependencies": {
-    "async": "^2.5.0",
+    "async": "^2.6.4",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-device": "^0.4.2",
