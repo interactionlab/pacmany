@@ -19,7 +19,7 @@
     "pg": "^6.4.0",
     "pug": "^2.0.0-rc.4",
     "socket.io": "^1.7.4",
-    "ua-parser-js": "^0.7.13"
+    "ua-parser-js": "^0.7.24"
   },
   "repository": {
     "type": "git",
